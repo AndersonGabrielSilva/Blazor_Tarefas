@@ -1,0 +1,9 @@
+﻿
+<td>@item.DataCriacao.ToShortDateString()</td>
+<td>@item.Descricao</td>
+<td><input type="checkbox" @bind="@item.Concluida" /> @item.Concluida</td>
+
+@code {
+    [Parameter]
+    public Tarefa item { get; set; }
+}

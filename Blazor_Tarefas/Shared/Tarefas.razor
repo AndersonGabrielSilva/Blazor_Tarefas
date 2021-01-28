@@ -1,0 +1,81 @@
+﻿<h3>@Titulo</h3>
+
+@if (lstTarefas == null)
+{
+    <Alerta Mensagem="Carregando" />
+    <p>Carregando....</p>
+}
+else if (!lstTarefas.Any())
+{
+    <Alerta Mensagem="Ainda não existem tarefas..." />
+}
+else
+{
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Ação</th>
+                <th>Data</th>
+                <th>Descrição</th>
+                <th>Concluida</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in lstTarefas)
+            {
+                <tr>
+                    <td><button @onclick="@(() => RemoveTarefa(item.Id))" /><i class="oi oi-trash"></i></td>
+                    <TarefaIndividual item="item" />
+                </tr>
+            }
+        </tbody>
+    </table>
+}
+
+@if (lstTarefas != null)
+{
+    <div class="form-group">
+        <label>Tarefa</label>
+        <input type="number" placeholder="Informe o codigo" @bind="codigo" />
+        <input type="text" placeholder="Informe a tarefa" @bind="novaTarefa" />
+        <button class="btn btn-primary" @onclick="AdicionarNovaTarefa">Registrar Tarefa</button>
+    </div>
+}
+
+@code{
+
+    [Parameter]
+    public List<Tarefa> lstTarefas { get; set; }
+
+    [Parameter]
+    public string Titulo { get; set; }
+
+
+    void AdicionarNovaTarefa()
+    {
+        if (!string.IsNullOrWhiteSpace(novaTarefa) && codigo != 0)
+        {
+            lstTarefas.Add(new Tarefa()
+            {
+                Id = codigo,
+                Descricao = novaTarefa,
+                DataCriacao = DateTime.Now
+            });
+
+            novaTarefa = "";
+        }
+    }
+
+    void RemoveTarefa(int id)
+    {
+        var tarefaRemover = lstTarefas.First(x => x.Id == id);
+        lstTarefas.Remove(tarefaRemover);
+    }
+
+
+    private string novaTarefa = string.Empty;
+    private int codigo = 0;
+
+
+
+}

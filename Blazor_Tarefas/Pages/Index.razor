@@ -1,88 +1,20 @@
 ﻿@page "/"
 @inject HttpClient http
 
-@if (lstTarefas == null)
-{
-    <p>Carregando....</p>
-}
-else if (!lstTarefas.Any())
-{
-    <p>Ainda não existem tarefas...</p>
-}
-else
-{
-    <table class="table">
-        <thead>
-            <tr>
-                <th>Ação</th>
-                <th>Data</th>
-                <th>Descrição</th>
-                <th>Concluida</th>
-            </tr>
-        </thead>
-        <tbody>
-            @foreach (var item in lstTarefas)
-            {
-                <tr>
-                    <td><button @onclick="@(() => RemoveTarefa(item.Id))"/><i class="oi oi-trash"></i></td>
-                    <td>@item.DataCriacao.ToShortDateString()</td>
-                    <td>@item.Descricao</td>
-                    <td><input type="checkbox" @bind="@item.Concluida" /> @item.Concluida</td>
-                </tr>
-            }
-        </tbody>
-    </table>
-}
+<h1>Tarefas</h1>
 
-@if(lstTarefas != null)
-{
-    <div class="form-group">
-        <label>Tarefa</label>
-        <input type="number" placeholder="Informe o codigo" @bind="codigo"/>
-        <input type="text" placeholder="Informe a tarefa" @bind="novaTarefa"/>
-        <button class="btn btn-primary" @onclick="AdicionarNovaTarefa">Registrar Tarefa</button>
-    </div>
-}
+<Tarefas Titulo="Tarefas" lstTarefas="GetTarefas()"/>
 
 @code{
+
+    public List<Tarefa> lstTarefas = new List<Tarefa>();
+
     protected override async Task OnInitializedAsync()
     {
         lstTarefas = await http.GetFromJsonAsync<List<Tarefa>>("dados/tarefas.json");
     }
 
-    void AdicionarNovaTarefa()
-    {
-        if (!string.IsNullOrWhiteSpace(novaTarefa) && codigo != 0)
-        {
-            lstTarefas.Add(new Tarefa()
-            {
-                Id = codigo,
-                Descricao = novaTarefa,
-                DataCriacao = DateTime.Now
-            });
-
-            novaTarefa = "";
-        }
-    }
-
-    void RemoveTarefa(int id)
-    {
-        var tarefaRemover = lstTarefas.First(x => x.Id == id);
-        lstTarefas.Remove(tarefaRemover);
-    }
-
-    public class Tarefa
-    {
-        public int Id { get; set; }
-        public string Descricao { get; set; }
-        public bool Concluida { get; set; }
-        public DateTime DataCriacao { get; set; }
-    }
-    private string novaTarefa = string.Empty;
-    private int codigo = 0;
-    private List<Tarefa> lstTarefas = new List<Tarefa>();
-
-
+    private List<Tarefa> GetTarefas()=>
+        lstTarefas;
+    
 }
-
-
