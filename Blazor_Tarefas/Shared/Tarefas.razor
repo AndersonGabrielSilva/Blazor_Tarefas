@@ -1,50 +1,23 @@
 ﻿<h3>@Titulo</h3>
 
-@if (lstTarefas == null)
-{
-    <Alerta >
-        @*<span style="color: red"> Carregando tarefas...</span>*@@*Utilizado quando há apenas um elemento a ser renderizado*@
-        <Conteudo1><img src="https://media.giphy.com/media/xTk9ZvMnbIiIew7IpW/giphy.gif" />
-        <h1>Aguarde...</h1>
-        </Conteudo1>
-        <Conteudo2>
-            <h2>Carregando...</h2>
-        </Conteudo2>
-    </Alerta>
-    <p>Carregando....</p>
-}
-else if (!lstTarefas.Any())
-{
-    <Alerta>
-        <Conteudo1><img src="https://media.giphy.com/media/l1J3OrWuIpDdWxvCo/giphy.gif" />
-        <h1>Ainda não existem registros</h1>
-        </Conteudo1>
-        <Conteudo2>
-        <h2>Inclua algumas tarefas</h2>
-        </Conteudo2>
-    </Alerta>
-}
-else
-{
-    <table class="table">
-        <thead>
-            <tr>
-                <th>Ação</th>
-                <th>Data</th>
-                <th>Descrição</th>
-                <th>Concluida</th>
-            </tr>
-        </thead>
-        <tbody>
-            @foreach (var item in lstTarefas)
-            {
-                <tr>
-                    <TarefaIndividual item="item" RemoverTarefa="RemoveTarefa" />
-                </tr>
-            }
-        </tbody>
-    </table>
-}
+<table class="table">
+    <thead>
+        <tr>
+            <th>Ação</th>
+            <th>Data</th>
+            <th>Descrição</th>
+            <th>Concluida</th>
+        </tr>
+    </thead>S
+    <tbody>
+        <ListaGenerica ListaItem="lstTarefas" >
+            <Lista Context="Tarefa">
+                @* Este context representa cada elemento da minha Lista de Item *@
+                <TarefaIndividual item="Tarefa" RemoverTarefa="RemoveTarefa"/>
+            </Lista>
+        </ListaGenerica>
+    </tbody>
+</table>
 
 @if (lstTarefas != null)
 {
@@ -93,3 +66,52 @@ else
 
 
 }
+@*   CÓDIGO ANTIGO UTILIZADO ANTES DO RENDERFRAGMENT GENERICO
+    <!--@if (lstTarefas == null)
+    {
+        <Alerta>-->
+            <span style="color: red"> Carregando tarefas...</span>*@@*Utilizado quando há apenas um elemento a ser renderizado
+            <!--<Conteudo1>
+                <img src="https://media.giphy.com/media/xTk9ZvMnbIiIew7IpW/giphy.gif" />
+                <h1>Aguarde...</h1>
+            </Conteudo1>
+            <Conteudo2>
+                <h2>Carregando...</h2>
+            </Conteudo2>
+        </Alerta>
+        <p>Carregando....</p>
+    }
+    else if (!lstTarefas.Any())
+    {
+        <Alerta>
+            <Conteudo1>
+                <img src="https://media.giphy.com/media/l1J3OrWuIpDdWxvCo/giphy.gif" />
+                <h1>Ainda não existem registros</h1>
+            </Conteudo1>
+            <Conteudo2>
+                <h2>Inclua algumas tarefas</h2>
+            </Conteudo2>
+        </Alerta>
+    }
+    else
+    {
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>Ação</th>
+                    <th>Data</th>
+                    <th>Descrição</th>
+                    <th>Concluida</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var item in lstTarefas)
+                {
+                    <tr>
+                        <TarefaIndividual item="item" RemoverTarefa="RemoveTarefa" />
+                    </tr>
+                }
+            </tbody>
+        </table>
+    }-->
+            *@

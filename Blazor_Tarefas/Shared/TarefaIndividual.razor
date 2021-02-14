@@ -1,11 +1,11 @@
 ﻿
+<tr>
+    <td><button @onclick="@(() => RemoverTarefa.InvokeAsync(item))" /><i class="oi oi-trash"></i></td>
 
-<td><button @onclick="@(() => RemoverTarefa.InvokeAsync(item))" /><i class="oi oi-trash"></i></td>
-
-<td>@item.DataCriacao.ToShortDateString()</td>
-<td>@item.Descricao</td>
-<td><input type="checkbox" @bind="@item.Concluida" /> @item.Concluida</td>
-
+    <td>@item.DataCriacao.ToShortDateString()</td>
+    <td>@item.Descricao</td>
+    <td><input type="checkbox" @bind="@item.Concluida" /> @item.Concluida</td>
+</tr>
 @code {
     [Parameter]
     public Tarefa item { get; set; }

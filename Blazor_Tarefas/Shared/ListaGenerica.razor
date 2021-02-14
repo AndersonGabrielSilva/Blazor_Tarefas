@@ -1,0 +1,50 @@
+﻿@typeparam TItem
+@**"typeparam" é a forma que no blazor utilizamos objetos genericos =>  T *@
+
+
+@if (ListaItem == null)
+{
+    if (Carregando == null)
+    {
+        <img src="https://media.giphy.com/media/xTk9ZvMnbIiIew7IpW/giphy.gif" />
+        <p>Carregando</p>
+    }
+    else
+    {
+        @Carregando
+    }
+}
+else if (!ListaItem.Any())
+{
+
+    if (SemRegistro == null)
+    {
+        <img src="https://media.giphy.com/media/l1J3OrWuIpDdWxvCo/giphy.gif" />
+        <h1>Ainda não existem registros</h1>
+    }
+    else
+    {
+        @SemRegistro
+    }
+}else
+{
+    foreach (var item in ListaItem)
+    {
+        @Lista(item)
+        @*Execulta o RenderFragment Generico*@
+    }
+}
+
+@code {
+    [Parameter]
+    public RenderFragment Carregando { get; set; }
+
+    [Parameter]
+    public RenderFragment SemRegistro { get; set; }
+
+    [Parameter]
+    public List<TItem> ListaItem { get; set; }
+
+    [Parameter]//Renderiza um fragmento que recebe um parametro de um tipo
+    public RenderFragment<TItem> Lista { get; set; }
+}
