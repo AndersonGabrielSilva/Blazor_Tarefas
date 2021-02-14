@@ -2,12 +2,20 @@
 
 @if (lstTarefas == null)
 {
-    <Alerta Mensagem="Carregando" />
+    <Alerta Mensagem="Carregando" >
+        <span style="color: red"> Carregando tarefas...</span>
+    </Alerta>
     <p>Carregando....</p>
 }
 else if (!lstTarefas.Any())
 {
-    <Alerta Mensagem="Ainda não existem tarefas..." />
+    <Alerta Mensagem="Ainda não existem tarefas...">
+        <div class="card">
+            <div class="card-body">
+                Você precisa cadastrar algumas tarefas
+            </div>
+        </div>
+    </Alerta>
 }
 else
 {
