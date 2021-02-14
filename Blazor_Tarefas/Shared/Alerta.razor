@@ -1,5 +1,5 @@
-﻿<div>
-    @if(@ChildContent == null)
+﻿@*<div>
+    @if (@ChildContent == null)
     {
         <span style="color:black">Texto Padrão</span>
     }
@@ -7,11 +7,39 @@
     {
         @ChildContent
     }
+</div>*@
+
+<div>
+    @if (Conteudo1 == null)
+    {
+        <span style="color:black">Texto Padrão</span>
+    }
+    else
+    {
+        @Conteudo1
+    }
+</div>
+<div>
+    @if (Conteudo2 == null)
+    {
+        <span style="color:black">Texto Padrão</span>
+    }
+    else
+    {
+        @Conteudo2
+    }
 </div>
 
 @code {
-   
+
     //Renderiza um fragmento de html, informado pelo componente pai
+    //É utilizado quando renderizamos apenas uma sessão de Fragmento
+    //[Parameter]
+    //public RenderFragment ChildContent { get; set; }
+
     [Parameter]
-    public RenderFragment ChildContent { get; set; }
+    public RenderFragment Conteudo1 { get; set; }
+
+    [Parameter]
+    public RenderFragment Conteudo2 { get; set; }
 }

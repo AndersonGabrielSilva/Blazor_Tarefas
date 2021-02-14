@@ -2,19 +2,26 @@
 
 @if (lstTarefas == null)
 {
-    <Alerta Mensagem="Carregando" >
-        <span style="color: red"> Carregando tarefas...</span>
+    <Alerta >
+        @*<span style="color: red"> Carregando tarefas...</span>*@@*Utilizado quando há apenas um elemento a ser renderizado*@
+        <Conteudo1><img src="https://media.giphy.com/media/xTk9ZvMnbIiIew7IpW/giphy.gif" />
+        <h1>Aguarde...</h1>
+        </Conteudo1>
+        <Conteudo2>
+            <h2>Carregando...</h2>
+        </Conteudo2>
     </Alerta>
     <p>Carregando....</p>
 }
 else if (!lstTarefas.Any())
 {
-    <Alerta Mensagem="Ainda não existem tarefas...">
-        <div class="card">
-            <div class="card-body">
-                Você precisa cadastrar algumas tarefas
-            </div>
-        </div>
+    <Alerta>
+        <Conteudo1><img src="https://media.giphy.com/media/l1J3OrWuIpDdWxvCo/giphy.gif" />
+        <h1>Ainda não existem registros</h1>
+        </Conteudo1>
+        <Conteudo2>
+        <h2>Inclua algumas tarefas</h2>
+        </Conteudo2>
     </Alerta>
 }
 else
