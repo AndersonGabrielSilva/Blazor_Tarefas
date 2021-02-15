@@ -1,0 +1,26 @@
+﻿<div style="text-align:center">
+    <h3>
+        @Titulo
+    </h3>
+    <p>
+         <a href="https://macorattinet.lojavirtualnuvem.com.br/" 
+            target="_blank">Visite nossa loja</a>
+    </p>
+    <p>
+        @* Atraves do attributes é possivel passar varios atributos por parametros sem necessitar criar um monte de parametros *@
+        <img src="/imagens/produtos.jpg" @attributes="ParametrosAdicionais" />
+    </p>
+</div>
+@code {
+    [Parameter]
+    public string Titulo { get; set; }
+
+    /*CaptureUnmatchedValues => Capturar valores não coencidentes
+        ele irá capturar todos os atributos passados por parametros que não contem no componene filho.
+    è como se fosse uma hierarquia de atributos.
+    A propriedade necessita ser do tipo Dictionary
+    */
+    [Parameter(CaptureUnmatchedValues =true)]
+    public Dictionary<string, object> ParametrosAdicionais { get; set; }
+
+}

@@ -1,0 +1,19 @@
+﻿@page "/"
+
+<Home Titulo="Bem-Vindo a loja do Macoratti"
+       @attributes="MeusParametros"
+      >
+
+</Home>
+@code{
+    public Dictionary<string, object> MeusParametros { get; set; } =
+        new Dictionary<string, object>
+        {
+            {"src","/imagens/produtos2.jpg" },
+            {"alt","Meus Produtos"},
+            {"height", 100 },
+            {"width", 700 }
+        };
+
+}
+
