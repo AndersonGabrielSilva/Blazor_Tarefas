@@ -49,7 +49,9 @@
 
     Tarefa tarefaRemover;
 
-    void AdicionarNovaTarefa()
+
+    static int totalTarefas = 0;
+    async Task AdicionarNovaTarefa()
     {
         if (!string.IsNullOrWhiteSpace(novaTarefa) && codigo != 0)
         {
@@ -61,8 +63,26 @@
             });
 
             novaTarefa = "";
+            totalTarefas = lstTarefas.Count();
+
+            //await js.InvokeVoidAsync("getTotalTarefas");
+            await js.InvokeAsync<int>("getTotalTarefasIntancia", DotNetObjectReference.Create(this));
         }
     }
+
+    //Decorando com o JsInvocable para ser possivel chamar um metodo estatico via js
+    [JSInvokable]
+    public static Task<int> ObterTotalTarefa()
+    {
+        return Task.FromResult(totalTarefas);
+    }
+
+    [JSInvokable]
+    public Task<int> ObterTotalTarefasInstancia()
+    {
+        return Task.FromResult(totalTarefas);
+    }
+
 
     private async Task RemoveTarefa(Tarefa tarefa)
     {
