@@ -1,0 +1,13 @@
+﻿<h3>Pergunta</h3>
+
+<h4>Qual o significado da Vida ?</h4>
+<hr />
+<p>Resposta: @Valor</p>
+
+
+
+@code {
+    //Cascading Paramiter serve para capturar o valor passado pelo cascading
+    [CascadingParameter]
+    public string Valor { get; set; }
+}
