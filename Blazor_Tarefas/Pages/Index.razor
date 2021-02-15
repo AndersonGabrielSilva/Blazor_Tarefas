@@ -1,5 +1,5 @@
 ﻿@page "/"
-@inject HttpClient http
+@inject IRepositorio<Tarefa> repo
 
 <h1>Tarefas</h1>
 
@@ -9,9 +9,9 @@
 
     public List<Tarefa> lstTarefas = new List<Tarefa>();
 
-    protected override async Task OnInitializedAsync()
+    protected override void OnInitialized()
     {
-        lstTarefas = await http.GetFromJsonAsync<List<Tarefa>>("dados/tarefas.json");
+        lstTarefas = repo.ObterLista();
     }
 
     private List<Tarefa> GetTarefas()=>
