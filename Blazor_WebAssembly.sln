@@ -7,11 +7,11 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Blazor_Tarefas", "Blazor_Ta
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Blazor_CicloVida", "Blazor_CicloVida\Blazor_CicloVida.csproj", "{7EEA838C-31FE-4F9C-A766-152748484D13}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Blazor_InjecaoDependencia_Core_3", "Blazor_InjecaoDependencia_Core_3\Blazor_InjecaoDependencia_Core_3.csproj", "{5F31D846-24C0-42B2-86F1-E5FA99DEAB99}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Blazor_InjecaoDependencia_Core_3", "Blazor_InjecaoDependencia_Core_3\Blazor_InjecaoDependencia_Core_3.csproj", "{5F31D846-24C0-42B2-86F1-E5FA99DEAB99}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Blazor_CodBehind", "Blazor_CodBehind\Blazor_CodBehind.csproj", "{EFB36153-E828-4283-BD06-86F42CCDF450}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Blazor_CodBehind", "Blazor_CodBehind\Blazor_CodBehind.csproj", "{EFB36153-E828-4283-BD06-86F42CCDF450}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Blazor_Layouts", "Blazor_Layouts\Blazor_Layouts.csproj", "{FEDEE6E8-6174-4003-A796-65F46E069D22}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Blazor_Layouts", "Blazor_Layouts\Blazor_Layouts.csproj", "{FEDEE6E8-6174-4003-A796-65F46E069D22}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
