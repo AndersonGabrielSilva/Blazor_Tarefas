@@ -1,4 +1,6 @@
-﻿<h3>@Titulo</h3>
+﻿@inject IJSRuntime js
+
+<h3>@Titulo</h3>
 
 <table class="table">
     <thead>
@@ -10,14 +12,19 @@
         </tr>
     </thead>S
     <tbody>
-        <ListaGenerica ListaItem="lstTarefas" >
+        <ListaGenerica ListaItem="lstTarefas">
             <Lista Context="Tarefa">
                 @* Este context representa cada elemento da minha Lista de Item *@
-                <TarefaIndividual item="Tarefa" RemoverTarefa="RemoveTarefa"/>
+                <TarefaIndividual item="Tarefa" RemoverTarefa="RemoveTarefa" />
             </Lista>
         </ListaGenerica>
     </tbody>
 </table>
+
+<Confirma @ref="confirmacao" onCancela="CancelaConfirmacao"
+          onConfirma="RemoverTarefaConfirmacao">
+    <div>Deseja Excluir esta tarefa ?</div>
+</Confirma>
 
 @if (lstTarefas != null)
 {
@@ -37,6 +44,10 @@
     [Parameter]
     public string Titulo { get; set; }
 
+    //instancia do componente Confirma 
+    Confirma confirmacao;
+
+    Tarefa tarefaRemover;
 
     void AdicionarNovaTarefa()
     {
@@ -53,10 +64,39 @@
         }
     }
 
-    void RemoveTarefa(Tarefa tarefa)
+    private async Task RemoveTarefa(Tarefa tarefa)
     {
-        var tarefaRemover = lstTarefas.First(x => x.Id == tarefa.Id);
+
+        //confirmacao.Exibir();
+        //tarefaRemover = tarefa;
+        //var tarefaRemover = lstTarefas.First(x => x.Id == tarefa.Id);
+        //lstTarefas.Remove(tarefaRemover);
+
+        //Maneira de utilizar o Jsruntime de forma sincrona
+        var result = ((IJSInProcessRuntime)js).Invoke<bool>("confirm","Excluir tarefa");
+
+        //Maneira de utilizar o Jsruntime de forma Assincrona
+        //var result = await js.InvokeAsync<bool>("confirm","Excluir tarefa");
+
+        if (result)
+        {
+            lstTarefas.Remove(tarefa);
+            //await js.InvokeVoidAsync("MostraAlerta", "Tarefa excluida com sucesso");
+            await js.InvokeAsync<object>("MostraAlerta", "Tarefa excluida com sucesso");
+        }
+    }
+
+    void RemoverTarefaConfirmacao()
+    {
         lstTarefas.Remove(tarefaRemover);
+        tarefaRemover = null;
+        confirmacao.Ocultar();
+    }
+
+    void CancelaConfirmacao()
+    {
+        confirmacao.Ocultar();
+        tarefaRemover = null;
     }
 
 
@@ -66,6 +106,7 @@
 
 
 }
+
 @*   CÓDIGO ANTIGO UTILIZADO ANTES DO RENDERFRAGMENT GENERICO
     <!--@if (lstTarefas == null)
     {
