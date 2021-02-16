@@ -1,0 +1,54 @@
+﻿@page "/fetchdata"
+
+@using Blazor_ConsumindoLibRazor.Data
+@inject WeatherForecastService ForecastService
+
+<h1>
+    <Aviso Exibir="Exibir">
+        @Mensagem
+    </Aviso>
+</h1>
+<p>This component demonstrates fetching data from a service.</p>
+
+@if (forecasts == null)
+{
+    <p><em>Loading...</em></p>
+}
+else
+{
+    <MeuGrid Itens="@forecasts">
+        <Cabecalho>
+            <th>Data</th>
+            <th>Temp. (C)</th>
+            <th>Resumo</th>
+        </Cabecalho>
+        <Linha Context="forecast">
+            <td>@forecast.Date</td>
+            <td><center>@forecast.TemperatureC</center></td>
+            <td>@forecast.Summary</td>
+        </Linha>
+        <Rodape>
+            <td colspan="3">
+                <Aviso Exibir="@Exibir">
+                    @Mensagem
+                </Aviso>
+            </td>
+        </Rodape>
+    </MeuGrid>
+}
+
+@code {
+
+    bool Exibir = true;
+
+    [Parameter]
+    public string Mensagem { get; set; } = "Previsão do Tempo";
+
+
+private WeatherForecast[] forecasts;
+
+    protected override async Task OnInitializedAsync()
+    {
+        forecasts = await ForecastService.GetForecastAsync(DateTime.Now);
+    }
+}
