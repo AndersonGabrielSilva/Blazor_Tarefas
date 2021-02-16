@@ -7,16 +7,25 @@
     for submetido*@
 <EditForm Model="@usuario" OnSubmit="@Submeter">
 
-    <label form="nome">Nome</label>
-    <InputText id="nome" @bind-Value="usuario.Nome" />
-    <br />
-    <label form="email">Email</label>
-    <InputText id="email" @bind-Value="usuario.Email" />
-    <br />
-    <label form="idade">Email</label>
-    <InputNumber id="idade" @bind-Value="usuario.Idade" />
-    <br />
-    <input type="submit" value="Enviar Formulário" class="btn-primary"/>
+    <div class="form-group">
+        <label form="nome">Nome</label>
+        <InputText id="nome" @bind-Value="usuario.Nome" class="form-control"/>
+        <br />
+    </div>
+    <div class="form-group">
+        <label form="email">Email</label>
+        <InputText id="email" @bind-Value="usuario.Email" class="form-control" />
+        <br />
+    </div>
+    <div class="form-group">
+        <label form="idade">Email</label>
+        <InputNumber id="idade" @bind-Value="usuario.Idade" class="form-control"/>
+        <br />
+    </div>
+    <input type="submit" value="Enviar Formulário" class="btn-primary" />
+
+    @* Ativa o DataAnotation da classe de Modelo *@
+    <DataAnnotationsValidator />
 
 
 </EditForm>
