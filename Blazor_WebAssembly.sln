@@ -23,7 +23,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BibliotecaRazor", "Bibliote
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Blazor_ConsumindoLibRazor", "Blazor_ConsumindoLibRazor\Blazor_ConsumindoLibRazor.csproj", "{F49BB08C-9291-4A1C-9104-21D52B46AC2D}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Blazor_Roteamento", "Blazor_Roteamento\Blazor_Roteamento.csproj", "{566AD878-AEE8-4A0A-8335-46B3CC963C30}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Blazor_Roteamento", "Blazor_Roteamento\Blazor_Roteamento.csproj", "{566AD878-AEE8-4A0A-8335-46B3CC963C30}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
