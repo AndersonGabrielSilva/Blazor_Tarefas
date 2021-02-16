@@ -17,11 +17,13 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Blazor_CascadingValues", "B
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Blazor_ParamArbritarios", "Blazor_ParamArbritarios\Blazor_ParamArbritarios.csproj", "{24F99C82-4A5E-4DAA-A83D-A31C1B4FA8A3}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Blazor_LocalStorage", "Blazor_LocalStorage\Blazor_LocalStorage.csproj", "{4D944C86-0009-4048-BA7B-6D0AF772CA6E}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Blazor_LocalStorage", "Blazor_LocalStorage\Blazor_LocalStorage.csproj", "{4D944C86-0009-4048-BA7B-6D0AF772CA6E}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BibliotecaRazor", "BibliotecaRazor.cs\BibliotecaRazor.csproj", "{A4B39E0E-84D9-4574-B20C-761993895968}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BibliotecaRazor", "BibliotecaRazor.cs\BibliotecaRazor.csproj", "{A4B39E0E-84D9-4574-B20C-761993895968}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Blazor_ConsumindoLibRazor", "Blazor_ConsumindoLibRazor\Blazor_ConsumindoLibRazor.csproj", "{F49BB08C-9291-4A1C-9104-21D52B46AC2D}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Blazor_ConsumindoLibRazor", "Blazor_ConsumindoLibRazor\Blazor_ConsumindoLibRazor.csproj", "{F49BB08C-9291-4A1C-9104-21D52B46AC2D}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Blazor_Roteamento", "Blazor_Roteamento\Blazor_Roteamento.csproj", "{566AD878-AEE8-4A0A-8335-46B3CC963C30}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -69,6 +71,10 @@ Global
 		{F49BB08C-9291-4A1C-9104-21D52B46AC2D}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{F49BB08C-9291-4A1C-9104-21D52B46AC2D}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{F49BB08C-9291-4A1C-9104-21D52B46AC2D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{566AD878-AEE8-4A0A-8335-46B3CC963C30}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{566AD878-AEE8-4A0A-8335-46B3CC963C30}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{566AD878-AEE8-4A0A-8335-46B3CC963C30}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{566AD878-AEE8-4A0A-8335-46B3CC963C30}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
