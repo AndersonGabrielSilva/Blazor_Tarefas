@@ -25,6 +25,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Blazor_ConsumindoLibRazor",
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Blazor_Roteamento", "Blazor_Roteamento\Blazor_Roteamento.csproj", "{566AD878-AEE8-4A0A-8335-46B3CC963C30}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Blazor_Formularios", "Blazor_Formularios\Blazor_Formularios.csproj", "{63C31E6C-A123-495B-A83E-209A451BB60F}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -75,6 +77,10 @@ Global
 		{566AD878-AEE8-4A0A-8335-46B3CC963C30}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{566AD878-AEE8-4A0A-8335-46B3CC963C30}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{566AD878-AEE8-4A0A-8335-46B3CC963C30}.Release|Any CPU.Build.0 = Release|Any CPU
+		{63C31E6C-A123-495B-A83E-209A451BB60F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{63C31E6C-A123-495B-A83E-209A451BB60F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{63C31E6C-A123-495B-A83E-209A451BB60F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{63C31E6C-A123-495B-A83E-209A451BB60F}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
