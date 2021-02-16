@@ -1,16 +1,32 @@
 ﻿@page "/counter"
-
+@page "/counter/{incremento:int}"
+@page "/counter/{texto}"
+@page "/counter/{incremento:int}/{texto}"
+@* Como passar parametros pela rota *@
 <h1>Counter</h1>
 
 <p>Current count: @currentCount</p>
 
 <button class="btn btn-primary" @onclick="IncrementCount">Click me</button>
 
+<h1>@Texto</h1>
+
 @code {
+    [Parameter]
+    public int Incremento { get; set; }
+
+    [Parameter]
+    public string Texto { get; set; } = "Blazor";
+
     private int currentCount = 0;
 
     private void IncrementCount()
     {
-        currentCount++;
+        Texto = Texto ?? "O Blazor é incrivel";
+
+        if (Incremento > 0)
+            currentCount = currentCount + Incremento;
+        else
+            currentCount++;
     }
 }
