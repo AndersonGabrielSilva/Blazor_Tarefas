@@ -3,18 +3,25 @@
 
 <h1>Tarefas</h1>
 
-<Tarefas Titulo="Tarefas" lstTarefas="GetTarefas()"/>
+<Tarefas @ref="teste" Titulo="Tarefas" lstTarefas="GetTarefas()"/>
 
 @code{
 
     public List<Tarefa> lstTarefas = new List<Tarefa>();
+
+    public Tarefas teste { get; set; }
 
     protected override void OnInitialized()
     {
         lstTarefas = repo.ObterLista();
     }
 
+    protected override void OnAfterRender(bool firstRender)
+    {
+        var totalTarefas = teste.lstTarefas.Count();
+    }
+
     private List<Tarefa> GetTarefas()=>
-        lstTarefas;
-    
+    lstTarefas;
+
 }

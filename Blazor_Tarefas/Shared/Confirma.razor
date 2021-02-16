@@ -32,6 +32,7 @@
 }
 
 @code {
+
     [Parameter] public bool ExibirConfirmacao { get; set; } = false;
     [Parameter] public string Titulo { get; set; } = "Confirma Exclusão ?";
     [Parameter] public RenderFragment ChildContent { get; set; }
@@ -40,4 +41,5 @@
 
     public void Exibir() => ExibirConfirmacao = true;
     public void Ocultar() => ExibirConfirmacao = false;
+
 }

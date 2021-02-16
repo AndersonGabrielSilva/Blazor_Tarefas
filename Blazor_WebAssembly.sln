@@ -15,7 +15,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Blazor_Layouts", "Blazor_La
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Blazor_CascadingValues", "Blazor_CascadingValues\Blazor_CascadingValues.csproj", "{621B09A6-835C-4BC7-83C2-06EAA29F1EDD}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Blazor_ParamArbritarios", "Blazor_ParamArbritarios\Blazor_ParamArbritarios.csproj", "{24F99C82-4A5E-4DAA-A83D-A31C1B4FA8A3}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Blazor_ParamArbritarios", "Blazor_ParamArbritarios\Blazor_ParamArbritarios.csproj", "{24F99C82-4A5E-4DAA-A83D-A31C1B4FA8A3}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
