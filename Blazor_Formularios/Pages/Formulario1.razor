@@ -5,27 +5,43 @@
     
     OnSubmit é o metodo que será execultado quando o formulario
     for submetido*@
-<EditForm Model="@usuario" OnSubmit="@Submeter">
+<EditForm Model="@usuario">
+
+    @* Ativa o DataAnotation da classe de Modelo *@
+    <DataAnnotationsValidator />
+
+    @* ValidationSumary: Exibe uma lista abrangente de todos os erros no formulário. *@
+    <ValidationSummary />
 
     <div class="form-group">
         <label form="nome">Nome</label>
-        <InputText id="nome" @bind-Value="usuario.Nome" class="form-control"/>
+        <InputText id="nome" @bind-Value="usuario.Nome" class="form-control" />
         <br />
+        @* OValidationMessage : Pode exibir mensagens de erro para cada campo especifico do formulario. *@
+        <ValidationMessage For="()=> usuario.Nome" />
     </div>
     <div class="form-group">
         <label form="email">Email</label>
         <InputText id="email" @bind-Value="usuario.Email" class="form-control" />
         <br />
+        <ValidationMessage For="@(()=> usuario.Email)" />
+
     </div>
     <div class="form-group">
         <label form="idade">Email</label>
-        <InputNumber id="idade" @bind-Value="usuario.Idade" class="form-control"/>
+        <InputNumber id="idade" @bind-Value="usuario.Idade" class="form-control" />
         <br />
+        <ValidationMessage For="@(()=> usuario.Idade)" />
+
     </div>
     <input type="submit" value="Enviar Formulário" class="btn-primary" />
 
-    @* Ativa o DataAnotation da classe de Modelo *@
-    <DataAnnotationsValidator />
+   
+
+
+    
+
+  
 
 
 </EditForm>
