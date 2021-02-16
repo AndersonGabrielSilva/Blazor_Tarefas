@@ -2,10 +2,10 @@
 
 <h1>Meu primeiro formulario Blazor</h1>
 @* É um componente do blazor utilizado para criar formularios.
-    
+
     OnSubmit é o metodo que será execultado quando o formulario
     for submetido*@
-<EditForm Model="@usuario">
+<EditForm Model="@usuario" OnValidSubmit="@OnValidSubmit" OnInvalidSubmit="@OnInvalidSubmit">
 
     @* Ativa o DataAnotation da classe de Modelo *@
     <DataAnnotationsValidator />
@@ -18,39 +18,47 @@
         <InputText id="nome" @bind-Value="usuario.Nome" class="form-control" />
         <br />
         @* OValidationMessage : Pode exibir mensagens de erro para cada campo especifico do formulario. *@
-        <ValidationMessage For="()=> usuario.Nome" />
+        <ValidationMessage For="() => usuario.Nome" />
     </div>
     <div class="form-group">
         <label form="email">Email</label>
         <InputText id="email" @bind-Value="usuario.Email" class="form-control" />
         <br />
-        <ValidationMessage For="@(()=> usuario.Email)" />
+        <ValidationMessage For="@(() => usuario.Email)" />
 
     </div>
     <div class="form-group">
         <label form="idade">Email</label>
         <InputNumber id="idade" @bind-Value="usuario.Idade" class="form-control" />
         <br />
-        <ValidationMessage For="@(()=> usuario.Idade)" />
+        <ValidationMessage For="@(() => usuario.Idade)" />
 
     </div>
     <input type="submit" value="Enviar Formulário" class="btn-primary" />
-
-   
-
-
-    
-
-  
-
-
 </EditForm>
 
+<h5 class="mt-4">@ultimoSubmit</h5>
+
 @code {
+
     public Usuario usuario = new Usuario();
+    string ultimoSubmit;
 
-    private void Submeter()
+
+    private void OnInvalid(EditContext editContext)
     {
+        bool formIsValid = editContext.Validate();
+        ultimoSubmit = formIsValid ? "Sucesso - Formulario enviado" : "Falhou - formulario inálido";
+    }
+    private void OnValidSubmit(EditContext editContext)
+    {
+        ultimoSubmit = $"OnValidSubmit foi execultado.  " +
+                            $"O formulario é válido = {editContext.Validate()}";
+    }
 
+    private void OnInvalidSubmit(EditContext editContext)
+    {
+        ultimoSubmit = $"OnInvalidSubmit foi execultado.  " +
+                            $"O formulario é válido = {editContext.Validate()}";
     }
 }
