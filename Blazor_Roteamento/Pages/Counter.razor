@@ -1,4 +1,6 @@
 ﻿@page "/counter"
+@page "/counter/1"
+@page "/counter/2"
 @page "/counter/{incremento:int}"
 @page "/counter/{texto}"
 @page "/counter/{incremento:int}/{texto}"
@@ -10,6 +12,8 @@
 <button class="btn btn-primary" @onclick="IncrementCount">Click me</button>
 
 <h1>@Texto</h1>
+
+<a href="/">Atalho para o Home</a>
 
 @code {
     [Parameter]
